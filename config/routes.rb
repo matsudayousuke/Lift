@@ -1,4 +1,6 @@
 Lift::Application.routes.draw do
+  get "objectives/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

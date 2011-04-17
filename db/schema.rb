@@ -10,6 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20110416120132) do
+
+  create_table "objectives", :force => true do |t|
+    t.string   "name",        :limit => 100
+    t.text     "description"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
