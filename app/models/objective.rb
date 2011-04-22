@@ -3,7 +3,7 @@ class Objective < ActiveRecord::Base
 				   :length => {:maximum => 100}
 
   def self.search
-    order("'order' desc").all
+    order("`order` desc").all
   end
 
 end

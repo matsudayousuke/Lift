@@ -3,11 +3,13 @@ require 'spec_helper'
 describe Objective do
 
   describe "登録テスト" do
+
     before do
       @objective = Factory.build(:objective)
     end
 
     describe "必須項目チェック" do
+
       context "正常パターン" do
         it {@objective.should be_valid}
       end
@@ -18,9 +20,11 @@ describe Objective do
           @objective.should_not be_valid
         end
       end
+
     end
 
     describe "桁数チェック" do
+
       context "名前がmaxlength+1の場合" do
         it do
           @objective.name = "a" * 101
@@ -44,13 +48,15 @@ describe Objective do
     end
 
     describe "ソートテスト" do
+
       context "正常パターン" do
+        subject {Objective.search()}
         it do
-          objectives = Objective.search()
-          objectives.size.should == @objectives.size
-          objectives.should be_eql(@objectives)
+          should have(@objectives.size).items
+          should be_eql(@objectives.reverse)
         end
       end
+
     end
   end
 end
