@@ -1,0 +1,16 @@
+<table class="profile">
+  <tr>
+    <td class="main">
+      <% unless @user.objectives.empty? %>
+        <table class="objectives" summary="User objectives">
+          <%= render @objectives %>
+        </table>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @user.name %><br />
+      <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
+      <strong>Objectives</strong> <%= @user.objectives.count %>
+    </td>
+  </tr>
+</table>

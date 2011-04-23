@@ -21,6 +21,13 @@ describe Objective do
         end
       end
 
+      context "ユーザidが未入力の場合" do
+        it do
+          @objective.user_id = nil
+          @objective.should_not be_valid
+        end
+      end
+
     end
 
     describe "桁数チェック" do
