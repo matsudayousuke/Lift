@@ -6,3 +6,11 @@ Factory.define :objective do |o|
   o.order         {Factory.next(:objective_order)}
 end
 
+Factory.define :user do |u|
+  u.first_name    "松田"
+  u.last_name     "洋祐"
+  u.user_name     "matsudayousuke"
+  u.password      "yousukematsuda"
+  u.password_confirmation "yousukematsuda"
+end
+

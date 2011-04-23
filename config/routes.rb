@@ -1,5 +1,7 @@
 Lift::Application.routes.draw do
 
+  get "users/new"
+
   get "pages/index"
 
   get "pages/home"

@@ -10,12 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110416120132) do
+ActiveRecord::Schema.define(:version => 20110423073552) do
 
   create_table "objectives", :force => true do |t|
     t.string   "name",        :limit => 100
     t.text     "description"
     t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name",         :limit => 20
+    t.string   "last_name",          :limit => 20
+    t.string   "user_name",          :limit => 20
+    t.string   "encrypted_password"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
