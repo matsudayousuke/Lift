@@ -1,5 +1,14 @@
 Lift::Application.routes.draw do
+
+  get "pages/index"
+
+  get "pages/home"
+
+  get "objectives/index"
+
   resources :objectives
+
+  root :to => 'pages#home'
 
 
   # The priority is based upon order of creation:

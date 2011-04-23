@@ -3,4 +3,6 @@ class ObjectivesController < ApplicationController
     @objective = Objective.new
   end
 
+
+ 
 end
