@@ -48,22 +48,4 @@ describe Objective do
     end
   end
 
-  describe "検索テスト" do
-    before do
-      @objectives = Array.new
-      3.times {@objectives.push(Factory(:objective))}
-    end
-
-    describe "ソートテスト" do
-
-      context "正常パターン" do
-        subject {Objective.search()}
-        it do
-          should have(@objectives.size).items
-          should be_eql(@objectives.reverse)
-        end
-      end
-
-    end
-  end
 end

@@ -179,4 +179,46 @@ describe User do
       end
     end
   end
+
+  describe "#objectives" do
+
+    describe "抽出ロジックテスト" do
+
+      context "他のユーザの目標も登録されている場合" do
+
+        before do
+          @matsuda = Factory(:user, :user_name => "matsuda")
+          @kenjin  = Factory(:user, :user_name => "kenjin")
+          @yabu    = Factory(:user, :user_name => "yabu")
+          @matsuda_objectives = Array.new
+          @kenjin_objectives = Array.new
+          @yabu_objectives = Array.new
+          3.times {@matsuda_objectives << Factory(:objective, :user => @matsuda)}
+          3.times {@kenjin_objectives  << Factory(:objective, :user => @kenjin)}
+          3.times {@yabu_objectives    << Factory(:objective, :user => @yabu)}
+        end
+
+        it "自身の目標のみが取得されている" do
+          User.find(@matsuda.id).objectives.should == @matsuda_objectives
+          User.find(@kenjin.id).objectives.should == @kenjin_objectives
+          User.find(@yabu.id).objectives.should == @yabu_objectives
+        end
+      end
+    end
+
+    describe "ソートロジックテスト" do
+
+      before do
+        @user = Factory(:user)
+        @objectives = Array.new
+        @objectives << Factory(:objective, :user => @user, :order => 3)
+        @objectives << Factory(:objective, :user => @user, :order => 2)
+        @objectives << Factory(:objective, :user => @user, :order => 1)
+      end
+
+      it do
+        User.find(@user.id).objectives.should == @objectives.reverse
+      end
+    end
+  end
 end

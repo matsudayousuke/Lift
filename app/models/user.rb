@@ -2,7 +2,7 @@ require 'digest'
 
 class User < ActiveRecord::Base
 
-  has_many :objectives
+  has_many :objectives, :order => "`order`"
 
   attr_accessor :password
 
