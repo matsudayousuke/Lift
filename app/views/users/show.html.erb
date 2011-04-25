@@ -10,7 +10,8 @@
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
-      <strong>Objectives</strong> <%= @user.objectives.count %>
+      <strong>Objectives</strong> <%= @user.objectives.count %><br/>
+      <%= link_to "Add Objective", new_objective_path %>
     </td>
   </tr>
 </table>
