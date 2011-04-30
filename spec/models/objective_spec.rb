@@ -50,10 +50,14 @@ describe Objective do
 
   describe "#tags" do
 
+    before do
+      @tags = Array.new
+      @objective_tags = Array.new
+    end
+
     describe "抽出ロジックテスト" do
 
       before do
-        @objective_tags = Array.new
         @objective = Factory(:objective)
       end
 
@@ -76,14 +80,11 @@ describe Objective do
       context "複数のタグが設定されている場合" do
 
         before do
-          @tags = Array.new
-          @tags << Factory(:tag)
-          @tags << Factory(:tag)
+          2.times {@tags << Factory(:tag)}
           @tags.size.times do |i|
             @objective_tags << Factory(:objective_tag,
               :tag => @tags[i],
               :objective => @objective)
-
           end
         end
 
