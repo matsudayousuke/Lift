@@ -7,6 +7,10 @@ Factory.define :user do |u|
   u.password_confirmation "yousukematsuda"
 end
 
+Factory.define :tag do |t|
+  t.name "development"
+end
+
 Factory.sequence(:objective_order) {|n| n}
 
 Factory.define :objective do |o|
@@ -15,3 +19,9 @@ Factory.define :objective do |o|
   o.order         {Factory.next(:objective_order)}
   o.association   :user
 end
+
+Factory.define :objective_tag do |ot|
+  ot.association :objective
+  ot.association :tag
+end
+

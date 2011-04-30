@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110423140920) do
+ActiveRecord::Schema.define(:version => 20110425124622) do
+
+  create_table "objective_tags", :force => true do |t|
+    t.integer  "objective_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "objectives", :force => true do |t|
     t.string   "name",        :limit => 100
@@ -19,6 +26,12 @@ ActiveRecord::Schema.define(:version => 20110423140920) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
