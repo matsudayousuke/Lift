@@ -46,6 +46,15 @@ describe Objective do
         end
       end
     end
+
+    describe "タグの登録ロジックチェック" do
+      it do
+        lambda do
+          2.times{@objective.tags << Factory(:tag)}
+          @objective.save
+        end.should change(ObjectiveTag, :count).by(2)
+      end
+    end
   end
 
   describe "#tags" do
