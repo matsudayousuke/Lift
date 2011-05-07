@@ -6,12 +6,13 @@ describe ObjectivesController do
 
   describe "GET 'new'" do
     
+    before do
+      @user = test_sign_in(Factory(:user))
+    end
+
     it "正常パターン" do
-      get 'new'
+      get :new
       response.should be_success
-      response.should have_selector("input[type=text]#objective_name", :content => "")
-      response.should have_selector("textarea#objective_description", :content => "")
-      response.should have_selector("input[type=text]#objective_order", :content => "")
     end
   end
 
@@ -19,14 +20,25 @@ describe ObjectivesController do
 
     before do
       @user = test_sign_in(Factory(:user))
-      @objective = Factory(:objective, :user => @user)
+      @tag_list = "work, life"
+      @attr = {
+        :name => "objective",
+        :description => "objective description",
+        :order => 1,
+        :tag_list => @tag_list,
+        :user_id => @user.id
+        }
     end
 
     it "タグが1件登録されている" do
       lambda do
-        post :create, :objective_tag => { :objective_id => @objecitve, :name => 'new tag' }
-        response.should be_redirect
-      end.should change(ObjectiveTag, :count).by(1)
+          post :create, :objective => @attr
+      end.should change(ActsAsTaggableOn::Tag, :count).by(@tag_list.split(", ").size)
+    end
+
+    it "ルートに画面遷移されている" do
+      post :create, :objective => @attr
+      response.should redirect_to root_path
     end
   end
 

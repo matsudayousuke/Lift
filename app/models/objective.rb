@@ -1,10 +1,8 @@
 class Objective < ActiveRecord::Base
 
+  acts_as_taggable
+
   belongs_to :user
-
-  has_many :objective_tags
-
-  has_many :tags, :through => :objective_tags
 
   validates :user_id, :presence => true
 

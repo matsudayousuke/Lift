@@ -30,6 +30,8 @@ gem 'ruby-mysql'
 #   gem 'webrat'
 # end
 
+gem 'acts-as-taggable-on'
+
 group :development do
   gem 'rspec-rails', '2.5.0'
 end
