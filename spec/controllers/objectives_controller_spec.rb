@@ -104,4 +104,24 @@ describe ObjectivesController do
 
   end
 
+  describe "DELETE 'destroy'" do
+
+    before do
+      @objective = Factory(:objective)
+    end
+
+    describe "正常パターン" do
+
+      it "目標が削除されている" do
+        lambda do
+          delete :destroy, :id => @objective
+        end.should change(Objective, :count).by(-1)
+      end
+
+      it "ルートに画面遷移されている" do
+        delete :destroy, :id => @objective
+        response.should redirect_to root_path
+      end
+    end
+  end
 end

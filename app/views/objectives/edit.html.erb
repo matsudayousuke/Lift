@@ -4,5 +4,10 @@
   <%= render 'form' %>
   <div class="actions">
     <%= @f.submit "Update" %>
+    <%= link_to "Delete", @objective,
+      :method => :delete,
+      :confirm => "削除します。よろしいですか?",
+      :title => "Delete #{@objective.name}"
+    %>
   </div>
 <% end %>

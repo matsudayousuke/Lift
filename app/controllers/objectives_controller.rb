@@ -29,5 +29,10 @@ class ObjectivesController < ApplicationController
       render 'edit'
     end
   end
- 
+
+  def destroy
+    Objective.find(params[:id]).destroy
+    flash[:success] = "目標が削除されました。"
+    redirect_to root_path
+  end
 end
