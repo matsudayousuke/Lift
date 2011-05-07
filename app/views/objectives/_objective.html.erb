@@ -1,6 +1,6 @@
 <tr>
   <td class="objective">
-    <span class="content"><%= objective.name %></span>
+    <%= link_to objective.name, edit_objective_path(objective) %>
     <span class="timestamp">
       Posted <%= time_ago_in_words(objective.created_at) %> ago.
     </span>

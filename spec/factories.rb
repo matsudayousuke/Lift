@@ -13,6 +13,7 @@ Factory.define :objective do |o|
   o.name          "master TDD"
   o.description   "master TDD on Rails app"
   o.order         {Factory.next(:objective_order)}
+  o.tag_list      "work, life"
   o.association   :user
 end
 
