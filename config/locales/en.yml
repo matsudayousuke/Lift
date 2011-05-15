@@ -2,5 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  register_success: "{{target}} was successfully registered."
+  register_success: "%{target} was successfully registered."
+  update_success: "%{target} was successfully updated."
+  delete_success: "%{target} was successfully deleted."
   objective: "objective"

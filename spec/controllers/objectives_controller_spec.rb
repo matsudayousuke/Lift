@@ -38,6 +38,11 @@ describe ObjectivesController do
       post :create, :objective => @attr
       response.should redirect_to root_path
     end
+
+    it "成功メッセージがセットされている" do
+      post :create, :objective => @attr
+      flash[:success].should == I18n.t(:register_success, I18n.t(:objective))
+    end
   end
 
   describe "GET 'edit'" do

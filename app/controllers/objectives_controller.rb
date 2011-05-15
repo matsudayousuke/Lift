@@ -13,7 +13,7 @@ class ObjectivesController < ApplicationController
   def create
     @objective  = current_user.objectives.build(params[:objective])
     if @objective.save
-      flash[:success] = "目標を登録しました。"
+      flash[:success] = t(:register_success, t(:objective))
       redirect_to root_path
     else
       render 'new'
@@ -23,7 +23,7 @@ class ObjectivesController < ApplicationController
   def update
     @objective = Objective.find(params[:id])
     if @objective.update_attributes(params[:objective])
-      flash[:success] = "目標を更新しました。"
+      flash[:success] = t(:update_success, t(:objective))
       redirect_to root_path
     else
       render 'edit'
@@ -32,7 +32,7 @@ class ObjectivesController < ApplicationController
 
   def destroy
     Objective.find(params[:id]).destroy
-    flash[:success] = "目標が削除されました。"
+    flash[:success] = t(:delete_success, t(:objective))
     redirect_to root_path
   end
 end

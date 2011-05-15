@@ -2,5 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ja:
-  register_success: "{{target}}の登録に成功しました"
+  register_success: "%{target}の登録に成功しました"
+  update_success: "%{target}の更新に成功しました"
+  delete_success: "%{target}の削除に成功しました"
   objective: "目標"
