@@ -17,3 +17,8 @@ Factory.define :objective do |o|
   o.association   :user
 end
 
+Factory.define :result do |r|
+  r.body          "今日こんな事がありましたが、うまくいきませんでした"
+  r.date          Date.today
+  r.association   :objective
+end

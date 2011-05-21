@@ -4,6 +4,8 @@ class Objective < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :results
+
   validates :user_id, :presence => true
 
   validates :name, :presence => true, :length => {:maximum => 100}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110507023244) do
+ActiveRecord::Schema.define(:version => 20110521094813) do
 
   create_table "objectives", :force => true do |t|
     t.string   "name",        :limit => 100
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20110507023244) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "results", :force => true do |t|
+    t.date     "date"
+    t.text     "body"
+    t.integer  "objective_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
